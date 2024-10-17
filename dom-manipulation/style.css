@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  #quoteDisplay {
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    width: 300px;
+    text-align: center;
+    background-color: #fff;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  .form-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .form-container input {
+    margin: 5px;
+    padding: 8px;
+    width: 200px;
+  }

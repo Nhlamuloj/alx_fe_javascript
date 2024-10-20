@@ -108,3 +108,7 @@ window.onload = () => {
     document.getElementById('exportQuotes').addEventListener('click', exportQuotes);
 };
 
+quoteDisplay.innerHTML = `<p>${selectedQuote.text}</p><small>Category: ${selectedQuote.category}</small>`;
+quoteDisplay.innerHTML = '<p>No quotes available.</p>';
+
+

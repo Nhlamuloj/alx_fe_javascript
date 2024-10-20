@@ -64,23 +64,3 @@ function exportToJsonFile() {
   a.click();
   URL.revokeObjectURL(url);
 }
-
-// Function to import quotes from JSON
-function importFromJsonFile(event) {
-  const fileReader = new FileReader();
-  fileReader.onload = function(event) {
-      const importedQuotes = JSON.parse(event.target.result);
-      quotes.push(...importedQuotes);
-      saveQuotes();
-      showRandomQuote(); // Optionally show a random quote
-      alert('Quotes imported successfully!');
-  };
-  fileReader.readAsText(event.target.files[0]);
-}
-
-// Load quotes and create the add quote form on page load
-window.onload = () => {
-  loadQuotes();
-  createAddQuoteForm();
-  document.getElementById('exportQuotes').addEventListener('click', exportQuotes);
-};

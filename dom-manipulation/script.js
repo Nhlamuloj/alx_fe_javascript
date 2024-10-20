@@ -108,4 +108,3 @@ window.onload = () => {
     document.getElementById('exportQuotes').addEventListener('click', exportQuotes);
 };
 
-addQuoteButton.textContent = 'Add Quote'; // Set button label

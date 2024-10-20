@@ -150,17 +150,56 @@ async function fetchQuotesFromServer() {
     const url = 'https://example.com/api/quotes'; // Replace with your API endpoint
 
     try {
-        const response = await fetch(url);
-        
-        // Check if the response is okay (status code 200-299)
+        const response = await fetch(url, {
+            method: 'GET', // Specify the request method
+            headers: {
+                'Content-Type': 'application/json', // Specify the Content-Type
+            },
+        });
+
         if (!response.ok) {
             throw new Error(`Network response was not ok: ${response.statusText}`);
         }
 
-        const quotes = await response.json(); // Parse JSON data
-        return quotes; // Return the array of quotes
+        const quotes = await response.json();
+        return quotes;
     } catch (error) {
         console.error('Failed to fetch quotes:', error);
-        return []; // Return an empty array or handle the error as needed
+        return [];
     }
 }
+
+/**
+ * Posts a new quote to the server.
+ * @param {Object} quote - The quote object to be posted.
+ * @returns {Promise<void>} - A promise that resolves when the quote is posted.
+ */
+async function postQuote(quote) {
+    const url = 'https://example.com/api/quotes'; // Replace with your API endpoint
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST', // Specify the request method
+            headers: {
+                'Content-Type': 'application/json', // Specify the Content-Type
+            },
+            body: JSON.stringify(quote), // Convert the quote object to JSON
+        });
+
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+
+        console.log('Quote posted successfully');
+    } catch (error) {
+        console.error('Failed to post quote:', error);
+    }
+}
+
+// Example usage
+const newQuote = {
+    text: "The only limit to our realization of tomorrow is our doubts of today.",
+    category: "inspiration",
+};
+
+postQuote(newQuote);

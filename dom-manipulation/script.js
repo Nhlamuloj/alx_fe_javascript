@@ -112,3 +112,21 @@ quoteDisplay.innerHTML = `<p>${selectedQuote.text}</p><small>Category: ${selecte
 quoteDisplay.innerHTML = '<p>No quotes available.</p>';
 
 
+function populateCategories(categories) {
+  const categorySelect = document.getElementById("categorySelect");
+  categorySelect.innerHTML = ""; // Clear existing options
+  categories.forEach(category => {
+      const option = document.createElement("option");
+      option.value = category;
+      option.textContent = category;
+      categorySelect.appendChild(option);
+  });
+}
+function categoryFilter(selectedCategory, quotes) {
+  const filteredQuotes = quotes.filter(quote => quote.category === selectedCategory);
+  displayQuotes(filteredQuotes); // Assume displayQuotes is a function that renders quotes
+}
+
+const quoteTexts = quotes.map(quote => quote.text);
+
+

@@ -140,3 +140,7 @@ async function addQuote() {
     await postQuoteToServer(quote); // Post to server
     alert('New quote added and synced with server!');
 }
+
+function filterQuote(category) {
+    return quotes.filter(quote => quote.category === category);
+}

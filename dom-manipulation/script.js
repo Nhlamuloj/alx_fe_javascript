@@ -203,3 +203,17 @@ const newQuote = {
 };
 
 postQuote(newQuote);
+
+
+async function syncQuotes() {
+    const localQuotes = JSON.parse(localStorage.getItem('quotes')) || []; // Fetch quotes from local storage
+    const serverQuotes = await fetchQuotesFromServer(); // Fetch quotes from the server
+
+    // Compare local and server quotes and update local storage
+    if (JSON.stringify(localQuotes) !== JSON.stringify(serverQuotes)) {
+        localStorage.setItem('quotes', JSON.stringify(serverQuotes)); // Update local storage with server quotes
+        console.log('Quotes synchronized with the server.');
+    } else {
+        console.log('Local quotes are up-to-date with the server.');
+    }
+}

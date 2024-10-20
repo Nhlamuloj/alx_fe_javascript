@@ -8,12 +8,12 @@ function saveQuotes() {
 // Function to display a random quote
 function showRandomQuote() {
     if (quotes.length === 0) {
-        document.getElementById('quoteDisplay').innerText = 'No quotes available.';
+        document.getElementById('quoteDisplay').textContent = 'No quotes available.';
         return;
     }
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const selectedQuote = quotes[randomIndex];
-    document.getElementById('quoteDisplay').innerText = selectedQuote.text;
+    document.getElementById('quoteDisplay').textContent = selectedQuote.text;
 
     // Save last viewed quote in session storage
     sessionStorage.setItem('lastQuote', JSON.stringify(selectedQuote));

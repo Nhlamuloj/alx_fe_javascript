@@ -144,3 +144,23 @@ async function addQuote() {
 function filterQuote(category) {
     return quotes.filter(quote => quote.category === category);
 }
+
+
+async function fetchQuotesFromServer() {
+    const url = 'https://example.com/api/quotes'; // Replace with your API endpoint
+
+    try {
+        const response = await fetch(url);
+        
+        // Check if the response is okay (status code 200-299)
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+
+        const quotes = await response.json(); // Parse JSON data
+        return quotes; // Return the array of quotes
+    } catch (error) {
+        console.error('Failed to fetch quotes:', error);
+        return []; // Return an empty array or handle the error as needed
+    }
+}
